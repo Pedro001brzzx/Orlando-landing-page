@@ -1,4 +1,5 @@
 import { useScrollAnimation } from "../../controllers/useScrollAnimation";
+import { Link } from "react-router-dom";
 
 export function Hero() {
     const ref = useScrollAnimation('staggerChildren', { selector: '.o360-eyebrow, .o360-heading, .o360-hero-bottom, .o360-hero-cta' });
@@ -19,7 +20,7 @@ export function Hero() {
                 </p>
             </div>
             <div className="o360-hero-cta">
-                <a href="#contato" className="o360-btn-pill">Quero criar minha marca</a>
+                <Link to="/checkout" className="o360-btn-pill">Quero criar minha marca</Link>
             </div>
         </section>
     );

@@ -1,5 +1,6 @@
 import { useScrollAnimation } from "../../controllers/useScrollAnimation";
 import logo from "../../assets/logo2.png";
+import { Link } from "react-router-dom";
 
 export function Nav() {
     const ref = useScrollAnimation('nav');
@@ -12,9 +13,9 @@ export function Nav() {
                 <a href="#sobre">Sobre mim</a>
                 <a href="#identidade">Identidade Visual</a>
                 <a href="#portfolio">Portfólio</a>
-                <a href="#contato">Solicitar orçamento</a>
+                <Link to="/checkout">Solicitar orçamento</Link>
             </div>
-            <a href="#contato" className="o360-nav-cta">Quero criar minha marca</a>
+            <Link to="/checkout" className="o360-nav-cta">Quero criar minha marca</Link>
         </nav>
     );
 }

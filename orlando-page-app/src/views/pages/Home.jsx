@@ -1,4 +1,3 @@
-import { Cursor } from "../components/Cursor";
 import { Ticker } from "../components/Ticker";
 import { Nav } from "../components/Nav";
 import { Hero } from "../components/Hero";
@@ -12,7 +11,6 @@ import { Footer } from "../components/Footer";
 export default function Home() {
     return (
         <>
-            <Cursor />
             <Ticker />
             <Nav />
             <Hero />
