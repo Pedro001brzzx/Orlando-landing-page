@@ -23,7 +23,7 @@ export function Footer() {
                 <a href="#sobre">Sobre mim</a>
                 <a href="#identidade">Identidade Visual</a>
                 <a href="#portfolio">Portfólio</a>
-                <a href="#contato">Solicitar orçamento</a>
+                <a href="/checkout">Solicitar orçamento</a>
             </div>
             <p className="o360-footer-copy">2025 Orlando 360 Design. Todos os direitos reservados.</p>
         </footer >
