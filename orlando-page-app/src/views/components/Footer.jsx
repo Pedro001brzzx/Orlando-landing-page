@@ -5,9 +5,9 @@ export function Footer() {
     return (
         <footer className="o360-footer" ref={ref}>
             <div className="o360-footer-top">
-                <a href="#" className="o360-footer-icon">Bē</a>
-                <a href="#" className="o360-footer-icon">in</a>
-                <a href="#" className="o360-footer-icon">
+                <a href="https://www.behance.net/" target="_blank" rel="noreferrer" className="o360-footer-icon">Bē</a>
+                <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer" className="o360-footer-icon">in</a>
+                <a href="https://www.instagram.com/" target="_blank" rel="noreferrer" className="o360-footer-icon">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                         <rect x="2" y="2" width="20" height="20" rx="5" />
                         <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" />
