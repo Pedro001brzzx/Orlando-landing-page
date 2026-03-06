@@ -1,0 +1,11 @@
+{
+    "buildCommand": "cd orlando-page-app && npm install && npm run build",
+    "outputDirectory": "orlando-page-app/build",
+    "installCommand": "echo 'skip root install'",
+    "rewrites": [
+        {
+            "source": "/(.*)",
+            "destination": "/index.html"
+        }
+    ]
+}
