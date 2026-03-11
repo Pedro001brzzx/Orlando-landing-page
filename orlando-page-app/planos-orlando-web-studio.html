@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Planos — Orlando Web Studio</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --gold: #C9A84C;
+    --gold-light: #E8C96A;
+    --gold-dim: rgba(201,168,76,0.15);
+    --bg: #0A0A0B;
+    --surface: #111114;
+    --surface2: #18181D;
+    --text: #F0EDE6;
+    --muted: #7A7870;
+    --diamond: #A8D8EA;
+    --diamond-dim: rgba(168,216,234,0.12);
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    overflow-x: hidden;
+  }
+
+  /* Grain overlay */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.5;
+  }
+
+  .header {
+    text-align: center;
+    margin-bottom: 64px;
+    position: relative;
+    z-index: 1;
+    animation: fadeUp 0.8s ease forwards;
+    opacity: 0;
+  }
+
+  .header-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.35em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .header h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 6vw, 64px);
+    font-weight: 300;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    color: var(--text);
+  }
+
+  .header h1 em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .header-line {
+    width: 60px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 24px auto 0;
+  }
+
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+    max-width: 1100px;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+  }
+
+  .card {
+    position: relative;
+    background: var(--surface);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 2px;
+    padding: 48px 40px 44px;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(32px);
+    transition: border-color 0.4s, box-shadow 0.4s, transform 0.4s;
+  }
+
+  .card:hover {
+    transform: translateY(-6px) !important;
+    box-shadow: 0 32px 80px rgba(0,0,0,0.5);
+  }
+
+  .card.animate { animation: fadeUp 0.7s ease forwards; }
+  .card:nth-child(1) { animation-delay: 0.1s; }
+  .card:nth-child(2) { animation-delay: 0.25s; }
+  .card:nth-child(3) { animation-delay: 0.4s; }
+
+  /* Corner decoration */
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 80px; height: 80px;
+    border-top: 1px solid var(--gold);
+    border-right: 1px solid var(--gold);
+    opacity: 0.4;
+    transition: opacity 0.4s, width 0.4s, height 0.4s;
+  }
+
+  .card:hover::before { opacity: 0.9; width: 100px; height: 100px; }
+
+  /* Standard */
+  .card.standard {
+    border-color: rgba(255,255,255,0.07);
+  }
+  .card.standard:hover {
+    border-color: rgba(201,168,76,0.3);
+    box-shadow: 0 32px 80px rgba(0,0,0,0.5), 0 0 60px rgba(201,168,76,0.05);
+  }
+
+  /* 360 — featured */
+  .card.plan360 {
+    background: var(--surface2);
+    border-color: rgba(201,168,76,0.35);
+    box-shadow: 0 0 0 1px rgba(201,168,76,0.1), 0 24px 60px rgba(0,0,0,0.4);
+  }
+  .card.plan360:hover {
+    border-color: rgba(201,168,76,0.7);
+    box-shadow: 0 32px 80px rgba(0,0,0,0.6), 0 0 80px rgba(201,168,76,0.12);
+  }
+  .card.plan360::before { opacity: 0.8; }
+
+  /* Diamond */
+  .card.diamond {
+    border-color: rgba(168,216,234,0.2);
+  }
+  .card.diamond::before {
+    border-color: var(--diamond);
+    opacity: 0.4;
+  }
+  .card.diamond:hover {
+    border-color: rgba(168,216,234,0.5);
+    box-shadow: 0 32px 80px rgba(0,0,0,0.5), 0 0 60px rgba(168,216,234,0.07);
+  }
+
+  .badge {
+    display: inline-block;
+    font-size: 9px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 2px;
+    margin-bottom: 28px;
+    font-weight: 500;
+  }
+
+  .badge.gold { background: var(--gold-dim); color: var(--gold); border: 1px solid rgba(201,168,76,0.3); }
+  .badge.featured { background: var(--gold); color: #0A0A0B; }
+  .badge.diamond-badge { background: var(--diamond-dim); color: var(--diamond); border: 1px solid rgba(168,216,234,0.3); }
+
+  .plan-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    margin-bottom: 6px;
+    line-height: 1;
+  }
+
+  .plan-name.gold-text { color: var(--gold-light); }
+  .plan-name.diamond-text { color: var(--diamond); }
+
+  .plan-subtitle {
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+  }
+
+  .divider {
+    height: 1px;
+    background: linear-gradient(90deg, rgba(255,255,255,0.08), transparent);
+    margin-bottom: 28px;
+  }
+
+  .divider.gold-div { background: linear-gradient(90deg, rgba(201,168,76,0.3), transparent); }
+  .divider.diamond-div { background: linear-gradient(90deg, rgba(168,216,234,0.25), transparent); }
+
+  .features {
+    list-style: none;
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+  }
+
+  .features li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 13.5px;
+    color: #C8C5BC;
+    line-height: 1.4;
+    font-weight: 300;
+  }
+
+  .features li .icon {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .icon-gold { color: var(--gold); }
+  .icon-diamond { color: var(--diamond); }
+  .icon-muted { color: var(--muted); }
+
+  .deadline {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+  }
+
+  .deadline-dot {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--muted);
+    flex-shrink: 0;
+  }
+
+  .btn {
+    display: block;
+    width: 100%;
+    padding: 16px 24px;
+    text-align: center;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: all 0.3s;
+    border: none;
+  }
+
+  .btn-outline {
+    background: transparent;
+    border: 1px solid rgba(201,168,76,0.35);
+    color: var(--gold);
+  }
+  .btn-outline:hover {
+    background: var(--gold-dim);
+    border-color: var(--gold);
+  }
+
+  .btn-gold {
+    background: var(--gold);
+    color: #0A0A0B;
+  }
+  .btn-gold:hover {
+    background: var(--gold-light);
+    box-shadow: 0 8px 30px rgba(201,168,76,0.3);
+  }
+
+  .btn-diamond {
+    background: transparent;
+    border: 1px solid rgba(168,216,234,0.35);
+    color: var(--diamond);
+  }
+  .btn-diamond:hover {
+    background: var(--diamond-dim);
+    border-color: var(--diamond);
+  }
+
+  /* Glow bg for 360 */
+  .card.plan360::after {
+    content: '';
+    position: absolute;
+    top: -60px; left: 50%;
+    transform: translateX(-50%);
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(32px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .footer-note {
+    margin-top: 48px;
+    font-size: 12px;
+    color: var(--muted);
+    text-align: center;
+    letter-spacing: 0.1em;
+    position: relative;
+    z-index: 1;
+    animation: fadeUp 0.9s 0.6s ease forwards;
+    opacity: 0;
+  }
+</style>
+</head>
+<body>
+
+<header class="header">
+  <span class="header-label">Orlando Web Studio</span>
+  <h1>Nossos <em>Planos</em></h1>
+  <div class="header-line"></div>
+</header>
+
+<div class="cards">
+
+  <!-- PLANO 1: STANDARD -->
+  <div class="card standard animate">
+    <span class="badge gold">Plano 01</span>
+    <h2 class="plan-name">Standard</h2>
+    <p class="plan-subtitle">Presença digital essencial</p>
+    <div class="divider gold-div"></div>
+    <ul class="features">
+      <li>
+        <svg class="icon icon-gold" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><polyline points="2,8 6,12 14,4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Landing page de alta conversão
+      </li>
+      <li>
+        <svg class="icon icon-gold" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><polyline points="2,8 6,12 14,4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Otimizado para todos os dispositivos
+      </li>
+      <li>
+        <svg class="icon icon-gold" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><polyline points="2,8 6,12 14,4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        2 revisões inclusas
+      </li>
+    </ul>
+    <div class="deadline">
+      <div class="deadline-dot"></div>
+      Entrega em até 15 dias
+    </div>
+    <button class="btn btn-outline">Quero este plano</button>
+  </div>
+
+  <!-- PLANO 2: 360 -->
+  <div class="card plan360 animate">
+    <span class="badge featured">✦ Mais popular</span>
+    <h2 class="plan-name gold-text">Plano 360</h2>
+    <p class="plan-subtitle">Solução completa & acelerada</p>
+    <div class="divider gold-div"></div>
+    <ul class="features">
+      <li>
+        <svg class="icon icon-gold" viewBox="0 0 16 16" fill="none"><polyline points="2,8 6,12 14,4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Landing page de alta conversão
+      </li>
+      <li>
+        <svg class="icon icon-gold" viewBox="0 0 16 16" fill="none"><polyline points="2,8 6,12 14,4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Otimizado para todos os dispositivos
+      </li>
+      <li>
+        <svg class="icon icon-gold" viewBox="0 0 16 16" fill="none"><polyline points="2,8 6,12 14,4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        2 revisões inclusas
+      </li>
+      <li>
+        <svg class="icon icon-gold" viewBox="0 0 16 16" fill="none"><polyline points="2,8 6,12 14,4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Identidade visual completa
+      </li>
+      <li>
+        <svg class="icon icon-gold" viewBox="0 0 16 16" fill="none"><polyline points="2,8 6,12 14,4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Copywriting estratégico
+      </li>
+    </ul>
+    <div class="deadline">
+      <div class="deadline-dot" style="background:var(--gold)"></div>
+      Entrega em apenas 7 dias
+    </div>
+    <button class="btn btn-gold">Quero este plano</button>
+  </div>
+
+  <!-- PLANO 3: DIAMOND -->
+  <div class="card diamond animate">
+    <span class="badge diamond-badge">✦ Plano 03</span>
+    <h2 class="plan-name diamond-text">Diamond</h2>
+    <p class="plan-subtitle">Desenvolvimento sob medida</p>
+    <div class="divider diamond-div"></div>
+    <ul class="features">
+      <li>
+        <svg class="icon icon-diamond" viewBox="0 0 16 16" fill="none"><polyline points="2,8 6,12 14,4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Webdesign completo
+      </li>
+      <li>
+        <svg class="icon icon-diamond" viewBox="0 0 16 16" fill="none"><polyline points="2,8 6,12 14,4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Otimizado para todos os dispositivos
+      </li>
+      <li>
+        <svg class="icon icon-diamond" viewBox="0 0 16 16" fill="none"><polyline points="2,8 6,12 14,4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        2 revisões inclusas
+      </li>
+      <li>
+        <svg class="icon icon-diamond" viewBox="0 0 16 16" fill="none"><polyline points="2,8 6,12 14,4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Identidade visual completa
+      </li>
+      <li>
+        <svg class="icon icon-diamond" viewBox="0 0 16 16" fill="none"><polyline points="2,8 6,12 14,4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Copywriting estratégico
+      </li>
+      <li>
+        <svg class="icon icon-diamond" viewBox="0 0 16 16" fill="none"><polyline points="2,8 6,12 14,4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Funcionalidades dinâmicas
+      </li>
+      <li>
+        <svg class="icon icon-diamond" viewBox="0 0 16 16" fill="none"><polyline points="2,8 6,12 14,4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Gestão de dados e processos
+      </li>
+      <li>
+        <svg class="icon icon-diamond" viewBox="0 0 16 16" fill="none"><polyline points="2,8 6,12 14,4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Desenvolvimento personalizado
+      </li>
+      <li>
+        <svg class="icon icon-diamond" viewBox="0 0 16 16" fill="none"><polyline points="2,8 6,12 14,4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Suporte pós-lançamento
+      </li>
+    </ul>
+    <div class="deadline">
+      <div class="deadline-dot" style="background:var(--diamond)"></div>
+      Prazo a combinar
+    </div>
+    <button class="btn btn-diamond">Solicitar proposta</button>
+  </div>
+
+</div>
+
+<p class="footer-note">Todos os planos incluem hospedagem no primeiro mês · Suporte via WhatsApp</p>
+
+<script>
+  // trigger animations
+  document.querySelectorAll('.card.animate').forEach(el => {
+    el.style.animation = el.style.animation;
+  });
+</script>
+</body>
+</html>
