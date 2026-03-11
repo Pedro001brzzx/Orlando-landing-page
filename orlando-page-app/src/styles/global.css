@@ -131,7 +131,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 1.6rem var(--container-px);
+    padding: 1.5rem var(--container-px);
     position: sticky;
     top: 0;
     z-index: 100;
@@ -146,7 +146,7 @@
   }
 
   .o360-nav-logo img {
-    height: 38px;
+    height: 33px;
     width: auto;
   }
 
@@ -811,9 +811,24 @@
       gap: 3.5rem;
     }
 
-    .o360-sobre-circle {
-      width: 280px;
-      height: 280px;
+    .o360-sobre-img-wrap img {
+      max-width: 100%;
+    }
+
+    .o360-sobre-right p {
+      word-break: break-word;
+      overflow-wrap: break-word;
+    }
+
+    .o360-footer-nav {
+      flex-wrap: wrap;
+      gap: 1rem 1.5rem;
+      justify-content: center;
+    }
+
+    .o360-footer-copy {
+      padding: 0 1rem;
+      word-break: break-word;
     }
 
     .o360-testimonials {
@@ -824,8 +839,13 @@
       --card-w: 80vw;
     }
 
-    .o360-nav-links {
+    .o360-nav-links,
+    .o360-nav-cta {
       display: none;
+    }
+
+    .o360-nav-hamburger {
+      display: flex;
     }
 
     .o360-carousel-item {
@@ -856,3 +876,64 @@
       height: 240px;
     }
   }
+
+  /* Hamburger — visível só em mobile, controlado pelo media query abaixo */
+  .o360-nav-hamburger {
+    z-index: 110;
+  }
+
+  @media(min-width: 901px) {
+    .o360-nav-hamburger {
+      display: none;
+    }
+  }
+
+  /* Mobile menu dropdown */
+  .o360-nav-mobile-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(10, 10, 10, 0.97);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem var(--container-px) 2rem;
+    gap: 1.4rem;
+    z-index: 105;
+  }
+
+  .o360-nav-mobile-menu a {
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .o360-nav-mobile-menu a:hover { color: var(--white); }
+
+  .o360-mobile-cta {
+    display: inline-block;
+    width: fit-content;
+    margin-top: 0.6rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    background: var(--white);
+    color: var(--black);
+    padding: 0.7rem 1.4rem;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: background 0.25s;
+  }
+
+  .o360-nav-mobile-menu .o360-mobile-cta {
+    color: #0a0a0a !important;
+  }
+
+  .o360-mobile-cta:hover { background: var(--cream); }

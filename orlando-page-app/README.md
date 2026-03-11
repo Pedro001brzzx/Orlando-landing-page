@@ -1,70 +1,67 @@
-# Getting Started with Create React App
+# Orlando 360 — Landing Page App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Aplicação React para a agência **Orlando 360 Design**, composta por múltiplas páginas de conversão com design premium e responsividade completa.
 
-## Available Scripts
+## Páginas
 
-In the project directory, you can run:
+| Rota | Descrição |
+|------|-----------|
+| `/` | Home — Branding / Identidade Visual |
+| `/webdesign` | Webdesign — Landing Pages |
+| `/checkout` | Formulário de orçamento (Identidade Visual) |
+| `/checkout2` | Seleção de planos + formulário (Webdesign) |
 
-### `npm start`
+## Tecnologias
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- React 18 (Create React App)
+- React Router DOM v6
+- CSS inline + global.css (design system próprio)
+- Vercel (deploy)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Como rodar
 
-### `npm test`
+```bash
+npm install
+npm start
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Build para produção
 
-### `npm run build`
+```bash
+npm run build
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Estrutura principal
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```
+src/
+  views/
+    pages/
+      Home.jsx          — Página inicial (branding)
+      Branding.jsx      — Página webdesign
+      Checkout.jsx      — Formulário orçamento branding
+      CheckoutPage2.jsx — Planos + formulário webdesign
+    components/
+      Nav.jsx           — Nav da homepage
+      BrandingNav.jsx   — Nav da /webdesign
+      BrandingHero.jsx
+      BrandingSobre.jsx
+      BrandingDeliverables.jsx
+      BrandingTestimonials.jsx
+      BrandingCTA.jsx
+      BrandingFooter.jsx
+      BrandingTicker.jsx
+      Portfolio.jsx
+      Footer.jsx
+      GrokStarfield.jsx — Background animado de estrelas
+      Cursor.jsx        — Cursor customizado
+  styles/
+    global.css          — Design system global
+  controllers/
+    useScrollAnimation.js
+    useReveal.js
+public/
+  LOGO1_ORIG.png                    — Logo homepage
+  LOGO1_ORIG_WEBDESIGN_2186x219.png — Logo webdesign/checkout2
+  AVATAR3.png                       — Imagem seção "Sobre"
+```

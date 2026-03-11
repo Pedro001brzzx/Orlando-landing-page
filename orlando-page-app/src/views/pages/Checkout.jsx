@@ -2,6 +2,25 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../assets/logo2.png";
 
+const HomeIcon = ({ size = 24, color = "#ffffff", hovered = false }) => (
+    <svg
+        width={size}
+        height={size}
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        style={{
+            cursor: "pointer",
+            transition: "all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1)",
+            transform: hovered ? "translateY(-2px)" : "translateY(0)",
+            opacity: hovered ? 1 : 0.75,
+        }}
+    >
+        <path d="M3 11L12 3L21 11" stroke={color} strokeWidth="1.5" strokeLinecap="square" strokeLinejoin="miter" fill="none" />
+        <path d="M5 9.5V20H10V14H14V20H19V9.5" stroke={color} strokeWidth="1.5" strokeLinecap="square" strokeLinejoin="miter" fill="none" />
+    </svg>
+);
+
 const css = `
   @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Montserrat:wght@300;400;500;600&display=swap');
 
@@ -166,6 +185,7 @@ export default function Orcamento() {
     });
     const [papelariaSel, setPapelariaSel] = useState([]);
     const [submitted, setSubmitted] = useState(false);
+    const [homeHovered, setHomeHovered] = useState(false);
 
     const set = (k, v) => setForm(f => ({ ...f, [k]: v }));
 
@@ -205,6 +225,14 @@ export default function Orcamento() {
                     <Link to="/" className="o360-nav-logo">
                         <img src={logo} alt="Orlando 360 Logo" />
                     </Link>
+                    <Link
+                        to="/"
+                        style={{ textDecoration: "none" }}
+                        onMouseEnter={() => setHomeHovered(true)}
+                        onMouseLeave={() => setHomeHovered(false)}
+                    >
+                        <HomeIcon size={20} hovered={homeHovered} />
+                    </Link>
                 </nav>
                 <div className="orc-success">
                     <h2>Recebemos seu <em>pedido!</em></h2>
@@ -223,6 +251,14 @@ export default function Orcamento() {
             <nav className="o360-nav" style={{ position: 'relative' }}>
                 <Link to="/" className="o360-nav-logo">
                     <img src={logo} alt="Orlando 360 Logo" />
+                </Link>
+                <Link
+                    to="/"
+                    style={{ textDecoration: "none" }}
+                    onMouseEnter={() => setHomeHovered(true)}
+                    onMouseLeave={() => setHomeHovered(false)}
+                >
+                    <HomeIcon size={20} hovered={homeHovered} />
                 </Link>
             </nav>
 

@@ -55,23 +55,26 @@ function HamburgerIcon({ onClick, isOpen }) {
     );
 }
 
-export function Nav() {
+export function BrandingNav() {
     const ref = useScrollAnimation('nav');
     const [open, setOpen] = useState(false);
 
     return (
         <nav className="o360-nav" ref={ref}>
-            <div className="o360-nav-logo">
-                <img src={`${process.env.PUBLIC_URL}/LOGO1_ORIG.png`} alt="Orlando 360 Logo" />
-            </div>
+            <Link to="/webdesign" className="o360-nav-logo">
+                <img
+                    src={`${process.env.PUBLIC_URL}/LOGO1_ORIG_WEBDESIGN_2186x219.png`}
+                    alt="Orlando 360 Logo"
+                />
+            </Link>
             <div className="o360-nav-links">
-                <a href="#sobre">Sobre mim</a>
-                <a href="#identidade">Identidade Visual</a>
+                <a href="#sobre">Sobre nós</a>
+                <a href="#identidade">Landing Page</a>
                 <a href="#portfolio">Portfólio</a>
-                <Link to="/webdesign">Webdesign</Link>
-                <Link to="/checkout">Solicitar orçamento</Link>
+                <Link to="/">Branding</Link>
+                <Link to="/checkout2">Solicitar orçamento</Link>
             </div>
-            <Link to="/checkout" className="o360-nav-cta">Quero criar minha marca</Link>
+            <Link to="/checkout2" className="o360-nav-cta">Quero criar meu projeto</Link>
 
             <div className="o360-nav-hamburger">
                 <HamburgerIcon onClick={() => setOpen(!open)} isOpen={open} />
@@ -79,12 +82,12 @@ export function Nav() {
 
             {open && (
                 <div className="o360-nav-mobile-menu">
-                    <a href="#sobre" onClick={() => setOpen(false)}>Sobre mim</a>
-                    <a href="#identidade" onClick={() => setOpen(false)}>Identidade Visual</a>
+                    <a href="#sobre" onClick={() => setOpen(false)}>Sobre nós</a>
+                    <a href="#identidade" onClick={() => setOpen(false)}>Landing Page</a>
                     <a href="#portfolio" onClick={() => setOpen(false)}>Portfólio</a>
-                    <Link to="/webdesign" onClick={() => setOpen(false)}>Webdesign</Link>
-                    <Link to="/checkout" onClick={() => setOpen(false)}>Solicitar orçamento</Link>
-                    <Link to="/checkout" className="o360-mobile-cta" onClick={() => setOpen(false)}>Quero criar minha marca</Link>
+                    <Link to="/" onClick={() => setOpen(false)}>Branding</Link>
+                    <Link to="/checkout2" onClick={() => setOpen(false)}>Solicitar orçamento</Link>
+                    <Link to="/checkout2" className="o360-mobile-cta" onClick={() => setOpen(false)}>Quero meu projeto</Link>
                 </div>
             )}
         </nav>
