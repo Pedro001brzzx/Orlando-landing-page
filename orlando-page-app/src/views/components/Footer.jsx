@@ -1,9 +1,9 @@
-import { useScrollAnimation } from "../../controllers/useScrollAnimation";
+import { useReveal } from "../../controllers/useReveal";
 
 export function Footer() {
-    const ref = useScrollAnimation('fadeUp', { selector: '.o360-footer-top, .o360-footer-nav, .o360-footer-copy' });
+    const ref = useReveal();
     return (
-        <footer className="o360-footer" ref={ref}>
+        <footer className="o360-footer o360-reveal" ref={ref}>
             <div className="o360-footer-top">
                 <a href="https://www.instagram.com/orlando360design/" target="_blank" rel="noreferrer" className="o360-footer-icon">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">

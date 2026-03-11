@@ -25,7 +25,7 @@ const css = `
   .orc-nav-links a:hover { color:var(--white); }
 
   /* HERO */
-  .orc-hero { display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center; padding:6rem 8vw 5rem; min-height:55vh; }
+  .orc-hero { display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center; padding:6rem 8vw 5rem; min-height:55vh; max-width:1200px; margin:0 auto; }
   .orc-hero h1 { font-family:'Cormorant Garamond',serif; font-size:clamp(3.5rem,7vw,7rem); font-weight:300; line-height:.95; }
   .orc-hero h1 em { font-style:italic; }
   .orc-hero-right { padding-top:1rem; }
@@ -92,11 +92,22 @@ const css = `
   .orc-success h2 em { font-style:italic; }
   .orc-success p { font-size:.9rem; font-weight:300; color:rgba(255,255,255,.55); line-height:1.8; }
 
+  /* MOBILE */
   @media(max-width:768px) {
     .orc-hero { grid-template-columns:1fr; gap:2.5rem; padding:4rem 6vw 3rem; }
+    .orc-hero h1 { font-size:clamp(2.4rem, 9vw, 3.2rem); }
+    .orc-hero-right p,
+    .orc-hero-right .star-note,
+    .orc-hero-right .reply-note { font-size:.8rem; }
     .orc-form-wrap { padding:0 6vw 6rem; }
     .orc-checkbox-grid { grid-template-columns:1fr 1fr; }
     .orc-nav-links { display:none; }
+  }
+
+  @media(max-width:480px) {
+    .orc-hero { padding:3.2rem 5vw 2.5rem; gap:2rem; }
+    .orc-checkbox-grid { grid-template-columns:1fr; }
+    .orc-submit-row { justify-content:flex-start; }
   }
 `;
 
@@ -198,8 +209,7 @@ export default function Orcamento() {
                 <div className="orc-success">
                     <h2>Recebemos seu <em>pedido!</em></h2>
                     <p>
-                        Entrarei em contato pelo {form.contato || "e-mail"} em até 3 dias úteis.<br />
-                        Caso não receba, verifique a caixa de spam.
+                        Entrarei em contato pelo Whatsapp {form.contato || "e-mail"} .<br/>
                     </p>
                 </div>
             </>
@@ -235,8 +245,7 @@ export default function Orcamento() {
                         melhor e criar um orçamento personalizado para você.
                     </p>
                     <p className="reply-note">
-                        Entrarei em contato, pelo e-mail, em até 3 dias úteis, caso não receber,
-                        verifique a caixa de spam.
+                        Entrarei em contato, pelo Whatsapp.
                     </p>
                 </div>
             </div>

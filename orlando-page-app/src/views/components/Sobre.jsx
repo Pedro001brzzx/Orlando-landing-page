@@ -19,11 +19,6 @@ export function Sobre() {
                     <strong>242 projetos desenvolvidos</strong> para clientes no Brasil, Estados Unidos, Canadá e França.
                     Sou o <strong>Brand Designer da Orlando 360</strong>, e diretor de arte.
                 </p>
-                <div className="o360-badge">
-                    <span style={{ fontWeight: 700, letterSpacing: ".06em", fontSize: ".8rem" }}>Bē</span>
-                    <span>—</span>
-                    <span>Destaque internacional <strong>em design gráfico</strong></span>
-                </div>
             </div>
             <div className="o360-stats-row">
                 {[{ num: "+242", lbl: "Projetos desenvolvidos" }, { num: "+7", lbl: "Anos de experiência" }, { num: "+4", lbl: "Países atendidos" }].map(s => (

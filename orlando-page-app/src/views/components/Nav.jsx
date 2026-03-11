@@ -1,5 +1,4 @@
 import { useScrollAnimation } from "../../controllers/useScrollAnimation";
-import logo from "../../assets/logo2.png";
 import { Link } from "react-router-dom";
 
 export function Nav() {
@@ -7,7 +6,7 @@ export function Nav() {
     return (
         <nav className="o360-nav" ref={ref}>
             <div className="o360-nav-logo">
-                <img src={logo} alt="Orlando 360 Logo" />
+                <img src={`${process.env.PUBLIC_URL}/logo nav-bar.png`} alt="Orlando 360 Logo" />
             </div>
             <div className="o360-nav-links">
                 <a href="#sobre">Sobre mim</a>

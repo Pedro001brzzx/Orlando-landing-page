@@ -8,9 +8,14 @@ export const projects = [
 
 export const testimonials = [
   {
+    name: "Celiana Costa",
+    text: "Essa nova identidade visual conseguiu captar perfeitamente todos os elementos que eu quis, a idealização feita por vocês era o que eu precisava",
+    highlight: "e vai fazer total diferença para mim.",
+  },
+  {
     name: "Italo Langbehn",
-    text: "Fiquei impressionado com o resultado. A identidade visual que a Orlando 360 criou para minha marca superou todas as minhas expectativas.",
-    highlight: "Uma abordagem atenta, cuidadosa e extremamente talentosa. Super indico!",
+    text: "Obrigado pela logo meu amigo, muito bom saber que minha loja vai começar com algo exclusivo, simples",
+    highlight: "e que passa a mensagem que tinha em mente para ela.",
   },
   {
     name: "Dra. Laiza Carvalho",
