@@ -10,7 +10,7 @@ export function Portfolio() {
     return (
         <section className="o360-portfolio" id="portfolio" ref={ref}>
             <div className="o360-portfolio-header">
-                <p className="o360-section-label">Portfólio — Projetos selecionados...</p>
+                <p className="o360-section-label">Portfólio — Projetos selecionados</p>
             </div>
             <div className="o360-carousel-wrap">
                 <div
@@ -18,7 +18,7 @@ export function Portfolio() {
                     ref={trackRef}
                     style={{ transform: `translateX(-${pos}px)` }}
                 >
-                    {projects.map((p) => (
+                    {projects.map((p, i) => (
                         <div className="o360-carousel-item" key={p.key}>
                             <div className="o360-c-img">
                                 <img src={IMGS[p.key]} alt={p.label} />

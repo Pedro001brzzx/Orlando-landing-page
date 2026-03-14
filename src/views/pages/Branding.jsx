@@ -13,7 +13,7 @@ import { BrandingFooter } from "../components/BrandingFooter";
 export default function Branding() {
     useEffect(() => {
         const prev = document.title;
-        document.title = "Orlando 360 | Branding";
+        document.title = "Orlando 360 | Webdesign";
         return () => { document.title = prev; };
     }, []);
 

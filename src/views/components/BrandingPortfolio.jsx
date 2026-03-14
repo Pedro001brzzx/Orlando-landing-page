@@ -22,20 +22,6 @@ const brandingProjects = [
         styles: [{ transform: "scale(1.1)", transformOrigin: "center" }],
     },
     {
-        key: "aura",
-        label: "Aura",
-        sub: "Identidade Visual · Branding",
-        srcs: ["/Aura.jpeg"],
-        styles: [{ transform: "scale(1.1)", transformOrigin: "center" }],
-    },
-    {
-        key: "aura",
-        label: "Aura",
-        sub: "Identidade Visual · Branding",
-        srcs: ["/Aura.jpeg"],
-        styles: [{ transform: "scale(1.1)", transformOrigin: "center" }],
-    },
-    {
         key: "innovarsi",
         label: "Innovarsi",
         sub: "Identidade Visual · Editorial",
@@ -109,10 +95,10 @@ export function BrandingPortfolio() {
                     ref={trackRef}
                     style={{ transform: `translateX(-${pos}px)` }}
                 >
-                    {brandingProjects.map((p) => {
+                    {brandingProjects.map((p, i) => {
                         const srcs = p.srcs;
                         return (
-                            <div className="o360-carousel-item" key={p.key}>
+                            <div className="o360-carousel-item" key={`${p.key}-${i}`}>
                                 <CardImage srcs={srcs} styles={p.styles} alt={p.label} />
                                 <p className="o360-item-label">
                                     {p.label}
