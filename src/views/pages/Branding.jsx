@@ -3,7 +3,7 @@ import GrokStarfield from "../components/GrokStarfield";
 import { BrandingTicker } from "../components/BrandingTicker";
 import { BrandingNav } from "../components/BrandingNav";
 import { BrandingHero } from "../components/BrandingHero";
-import { Portfolio } from "../components/Portfolio";
+import { BrandingPortfolio } from "../components/BrandingPortfolio";
 import { BrandingDeliverables } from "../components/BrandingDeliverables";
 import { BrandingTestimonials } from "../components/BrandingTestimonials";
 import { BrandingSobre } from "../components/BrandingSobre";
@@ -23,15 +23,7 @@ export default function Branding() {
             <BrandingTicker />
             <BrandingNav />
             <BrandingHero />
-            <Portfolio
-                imageOverrides={{ aura: ["/MOCKUP4.png", "/MOCKUP2.png"] }}
-                imageStyles={{ aura: [
-                    { transform: "scale(1.15)", transformOrigin: "center" },
-                    { transform: "scale(1.45)", transformOrigin: "center" },
-                ] }}
-                labelOverrides={{ aura: { label: "Dr.Vieira", sub: "Design web Profissional" } }}
-                linkOverrides={{ aura: "https://dr-paulo.vercel.app/" }}
-            />
+            <BrandingPortfolio />
             <div className="o360-divider" />
             <BrandingDeliverables />
             <div className="o360-divider" />
