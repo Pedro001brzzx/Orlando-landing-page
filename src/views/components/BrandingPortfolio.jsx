@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useCarousel } from "../../controllers/useCarousel";
 import { useScrollAnimation } from "../../controllers/useScrollAnimation";
-import { IMGS } from "../../models/images";
 
 const brandingProjects = [
     {
@@ -15,10 +14,6 @@ const brandingProjects = [
             { transform: "scale(1.45)", transformOrigin: "center" },
         ],
     },
-    { key: "innovarsi", label: "Innovarsi", sub: "Identidade Visual · Editorial" },
-    { key: "celiana",   label: "Celiana Costa", sub: "Identidade Visual · Arquitetura" },
-    { key: "roma",      label: "Roma", sub: "Identidade Visual · Imobiliária" },
-    { key: "livia",     label: "Dra. Lívia Venâncio", sub: "Identidade Visual · Saúde" },
 ];
 
 function CardImage({ srcs, styles, alt }) {
@@ -66,7 +61,7 @@ export function BrandingPortfolio() {
                     style={{ transform: `translateX(-${pos}px)` }}
                 >
                     {brandingProjects.map((p) => {
-                        const srcs = p.srcs ?? [IMGS[p.key]];
+                        const srcs = p.srcs;
                         return (
                             <div className="o360-carousel-item" key={p.key}>
                                 <CardImage srcs={srcs} styles={p.styles} alt={p.label} />
