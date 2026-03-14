@@ -39,7 +39,7 @@ const brandingProjects = [
         key: "roma",
         label: "Roma",
         sub: "Identidade Visual · Imobiliária",
-        srcs: ["/image.png"],
+        srcs: ["/Roma.png"],
         styles: [{ transform: "scale(1.1)", transformOrigin: "center" }],
     },
     {
