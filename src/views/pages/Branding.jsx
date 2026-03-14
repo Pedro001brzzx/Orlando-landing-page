@@ -23,7 +23,15 @@ export default function Branding() {
             <BrandingTicker />
             <BrandingNav />
             <BrandingHero />
-            <Portfolio />
+            <Portfolio
+                imageOverrides={{ aura: ["/MOCKUP4.png", "/MOCKUP2.png"] }}
+                imageStyles={{ aura: [
+                    { transform: "scale(1.15)", transformOrigin: "center" },
+                    { transform: "scale(1.45)", transformOrigin: "center" },
+                ] }}
+                labelOverrides={{ aura: { label: "Dr.Vieira", sub: "Design web Profissional" } }}
+                linkOverrides={{ aura: "https://dr-paulo.vercel.app/" }}
+            />
             <div className="o360-divider" />
             <BrandingDeliverables />
             <div className="o360-divider" />
