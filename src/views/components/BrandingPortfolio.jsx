@@ -14,6 +14,41 @@ const brandingProjects = [
             { transform: "scale(1.45)", transformOrigin: "center" },
         ],
     },
+    {
+        key: "aura",
+        label: "Aura",
+        sub: "Identidade Visual · Branding",
+        srcs: ["/Aura.jpeg"],
+        styles: [{ transform: "scale(1.1)", transformOrigin: "center" }],
+    },
+    {
+        key: "innovarsi",
+        label: "Innovarsi",
+        sub: "Identidade Visual · Editorial",
+        srcs: ["/Innovarsi.png"],
+        styles: [{ transform: "scale(1.1)", transformOrigin: "center" }],
+    },
+    {
+        key: "celiana",
+        label: "Celiana Costa",
+        sub: "Identidade Visual · Arquitetura",
+        srcs: ["/Celiana-costa.png"],
+        styles: [{ transform: "scale(1.1)", transformOrigin: "center" }],
+    },
+    {
+        key: "roma",
+        label: "Roma",
+        sub: "Identidade Visual · Imobiliária",
+        srcs: ["/image.png"],
+        styles: [{ transform: "scale(1.1)", transformOrigin: "center" }],
+    },
+    {
+        key: "livia",
+        label: "Dra. Lívia Venâncio",
+        sub: "Identidade Visual · Saúde",
+        srcs: ["/dra-livia.png"],
+        styles: [{ transform: "scale(1.1)", transformOrigin: "center" }],
+    },
 ];
 
 function CardImage({ srcs, styles, alt }) {
