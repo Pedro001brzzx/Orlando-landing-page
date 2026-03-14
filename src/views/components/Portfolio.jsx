@@ -41,7 +41,7 @@ export function Portfolio({ imageOverrides = {}, imageStyles = {}, labelOverride
     return (
         <section className="o360-portfolio" id="portfolio" ref={ref}>
             <div className="o360-portfolio-header">
-                <p className="o360-section-label">Portfólio — Projetos selecionados</p>
+                <p className="o360-section-label">Portfólio — Projetos selecionados.</p>
             </div>
             <div className="o360-carousel-wrap">
                 <div
