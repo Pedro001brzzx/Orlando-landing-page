@@ -29,6 +29,13 @@ const brandingProjects = [
         styles: [{ transform: "scale(1.1)", transformOrigin: "center" }],
     },
     {
+        key: "aura",
+        label: "Aura",
+        sub: "Identidade Visual · Branding",
+        srcs: ["/Aura.jpeg"],
+        styles: [{ transform: "scale(1.1)", transformOrigin: "center" }],
+    },
+    {
         key: "innovarsi",
         label: "Innovarsi",
         sub: "Identidade Visual · Editorial",
