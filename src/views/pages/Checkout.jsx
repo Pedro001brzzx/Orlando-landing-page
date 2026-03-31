@@ -204,7 +204,7 @@ export default function Orcamento() {
             form.prazo ? `Prazo: ${form.prazo}` : `Prazo: Não informado`,
             `Itens de papelaria: ${papelariaTxt}`,
         ].join('\n');
-        window.open(`https://wa.me/5583961756060?text=${encodeURIComponent(msg)}`, '_blank');
+        window.open(`https://wa.me/558396175060?text=${encodeURIComponent(msg)}`, '_blank');
     };
 
     return (

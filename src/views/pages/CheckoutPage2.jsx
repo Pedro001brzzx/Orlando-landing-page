@@ -479,7 +479,7 @@ export default function CheckoutPage2() {
             `Nome: ${form.nome}`,
             `Contato: ${form.contato}`,
         ].join('\n');
-        window.open(`https://wa.me/5583961756060?text=${encodeURIComponent(msg)}`, '_blank');
+        window.open(`https://wa.me/558396175060?text=${encodeURIComponent(msg)}`, '_blank');
     };
 
     return (

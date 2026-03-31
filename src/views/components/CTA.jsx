@@ -1,6 +1,6 @@
 import { useReveal } from "../../controllers/useReveal";
 
-const WA_URL = `https://wa.me/5583961756060?text=${encodeURIComponent("Olá! Quero criar minha marca com a Orlando 360.")}`;
+const WA_URL = `https://wa.me/558396175060?text=${encodeURIComponent("Olá! Quero criar minha marca com a Orlando 360.")}`;
 
 export function CTA() {
     const ref = useReveal();

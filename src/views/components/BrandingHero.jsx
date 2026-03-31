@@ -1,6 +1,6 @@
 import { useScrollAnimation } from "../../controllers/useScrollAnimation";
 
-const WA_URL = `https://wa.me/5583961756060?text=${encodeURIComponent("Olá! Quero criar minha landing page com a Orlando 360.")}`;
+const WA_URL = `https://wa.me/558396175060?text=${encodeURIComponent("Olá! Quero criar minha landing page com a Orlando 360.")}`;
 
 export function BrandingHero() {
     const ref = useScrollAnimation('staggerChildren', { selector: '.o360-eyebrow, .o360-heading, .o360-hero-bottom, .o360-hero-cta' });

@@ -2,8 +2,8 @@ import { useState } from "react";
 import { useScrollAnimation } from "../../controllers/useScrollAnimation";
 import { Link } from "react-router-dom";
 
-const WA_URL = `https://wa.me/5583961756060?text=${encodeURIComponent("Olá! Quero criar minha marca com a Orlando 360.")}`;
-const WA_ORC = `https://wa.me/5583961756060?text=${encodeURIComponent("Olá! Quero solicitar um orçamento de identidade visual com a Orlando 360.")}`;
+const WA_URL = `https://wa.me/558396175060?text=${encodeURIComponent("Olá! Quero criar minha marca com a Orlando 360.")}`;
+const WA_ORC = `https://wa.me/558396175060?text=${encodeURIComponent("Olá! Quero solicitar um orçamento de identidade visual com a Orlando 360.")}`;
 
 function HamburgerIcon({ onClick, isOpen }) {
     return (
