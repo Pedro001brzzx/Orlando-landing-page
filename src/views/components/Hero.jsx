@@ -1,5 +1,6 @@
 import { useScrollAnimation } from "../../controllers/useScrollAnimation";
-import { Link } from "react-router-dom";
+
+const WA_URL = `https://wa.me/5583961756060?text=${encodeURIComponent("Olá! Quero criar minha marca com a Orlando 360.")}`;
 
 export function Hero() {
     const ref = useScrollAnimation('staggerChildren', { selector: '.o360-eyebrow, .o360-heading, .o360-hero-bottom, .o360-hero-cta' });
@@ -20,7 +21,7 @@ export function Hero() {
                 </p>
             </div>
             <div className="o360-hero-cta">
-                <Link to="/checkout" className="o360-btn-pill">Quero criar minha marca</Link>
+                <a href={WA_URL} target="_blank" rel="noopener noreferrer" className="o360-btn-pill">Quero criar minha marca</a>
             </div>
         </section>
     );

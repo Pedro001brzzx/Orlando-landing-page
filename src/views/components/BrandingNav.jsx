@@ -2,6 +2,9 @@ import { useState } from "react";
 import { useScrollAnimation } from "../../controllers/useScrollAnimation";
 import { Link } from "react-router-dom";
 
+const WA_ORC = `https://wa.me/5583961756060?text=${encodeURIComponent("Olá! Quero solicitar um orçamento de webdesign com a Orlando 360.")}`;
+const WA_PROJ = `https://wa.me/5583961756060?text=${encodeURIComponent("Olá! Quero criar meu projeto web com a Orlando 360.")}`;
+
 function HamburgerIcon({ onClick, isOpen }) {
     return (
         <button
@@ -72,9 +75,9 @@ export function BrandingNav() {
                 <a href="#identidade">Landing Page</a>
                 <a href="#portfolio">Portfólio</a>
                 <Link to="/">Branding</Link>
-                <Link to="/checkout2">Solicitar orçamento</Link>
+                <a href={WA_ORC} target="_blank" rel="noopener noreferrer">Solicitar orçamento</a>
             </div>
-            <Link to="/checkout2" className="o360-nav-cta">Quero criar meu projeto</Link>
+            <a href={WA_PROJ} target="_blank" rel="noopener noreferrer" className="o360-nav-cta">Quero criar meu projeto</a>
 
             <div className="o360-nav-hamburger">
                 <HamburgerIcon onClick={() => setOpen(!open)} isOpen={open} />
@@ -86,8 +89,8 @@ export function BrandingNav() {
                     <a href="#identidade" onClick={() => setOpen(false)}>Landing Page</a>
                     <a href="#portfolio" onClick={() => setOpen(false)}>Portfólio</a>
                     <Link to="/" onClick={() => setOpen(false)}>Branding</Link>
-                    <Link to="/checkout2" onClick={() => setOpen(false)}>Solicitar orçamento</Link>
-                    <Link to="/checkout2" className="o360-mobile-cta" onClick={() => setOpen(false)}>Quero meu projeto</Link>
+                    <a href={WA_ORC} target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}>Solicitar orçamento</a>
+                    <a href={WA_PROJ} target="_blank" rel="noopener noreferrer" className="o360-mobile-cta" onClick={() => setOpen(false)}>Quero meu projeto</a>
                 </div>
             )}
         </nav>

@@ -2,6 +2,9 @@ import { useState } from "react";
 import { useScrollAnimation } from "../../controllers/useScrollAnimation";
 import { Link } from "react-router-dom";
 
+const WA_URL = `https://wa.me/5583961756060?text=${encodeURIComponent("Olá! Quero criar minha marca com a Orlando 360.")}`;
+const WA_ORC = `https://wa.me/5583961756060?text=${encodeURIComponent("Olá! Quero solicitar um orçamento de identidade visual com a Orlando 360.")}`;
+
 function HamburgerIcon({ onClick, isOpen }) {
     return (
         <button
@@ -69,9 +72,9 @@ export function Nav() {
                 <a href="#identidade">Identidade Visual</a>
                 <a href="#portfolio">Portfólio</a>
                 <Link to="/webdesign">Webdesign</Link>
-                <Link to="/checkout">Solicitar orçamento</Link>
+                <a href={WA_ORC} target="_blank" rel="noopener noreferrer">Solicitar orçamento</a>
             </div>
-            <Link to="/checkout" className="o360-nav-cta">Quero criar minha marca</Link>
+            <a href={WA_URL} target="_blank" rel="noopener noreferrer" className="o360-nav-cta">Quero criar minha marca</a>
 
             <div className="o360-nav-hamburger">
                 <HamburgerIcon onClick={() => setOpen(!open)} isOpen={open} />
@@ -83,8 +86,8 @@ export function Nav() {
                     <a href="#identidade" onClick={() => setOpen(false)}>Identidade Visual</a>
                     <a href="#portfolio" onClick={() => setOpen(false)}>Portfólio</a>
                     <Link to="/webdesign" onClick={() => setOpen(false)}>Webdesign</Link>
-                    <Link to="/checkout" onClick={() => setOpen(false)}>Solicitar orçamento</Link>
-                    <Link to="/checkout" className="o360-mobile-cta" onClick={() => setOpen(false)}>Quero criar minha marca</Link>
+                    <a href={WA_ORC} target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}>Solicitar orçamento</a>
+                    <a href={WA_URL} target="_blank" rel="noopener noreferrer" className="o360-mobile-cta" onClick={() => setOpen(false)}>Quero criar minha marca</a>
                 </div>
             )}
         </nav>

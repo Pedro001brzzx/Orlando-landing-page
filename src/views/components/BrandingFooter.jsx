@@ -23,7 +23,7 @@ export function BrandingFooter() {
                 <a href="#sobre">Sobre nós</a>
                 <a href="#identidade">Landing Page</a>
                 <a href="#portfolio">Portfólio</a>
-                <a href="/checkout2">Solicitar orçamento</a>
+                <a href={`https://wa.me/5583961756060?text=${encodeURIComponent("Olá! Quero solicitar um orçamento de webdesign com a Orlando 360.")}`} target="_blank" rel="noopener noreferrer">Solicitar orçamento</a>
             </div>
             <p className="o360-footer-copy">2025 Orlando 360 Design. Todos os direitos reservados.</p>
         </footer>

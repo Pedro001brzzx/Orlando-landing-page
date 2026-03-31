@@ -184,7 +184,6 @@ export default function Orcamento() {
         nome: "", email: "", telefone: "", empresa: "", prazo: "",
     });
     const [papelariaSel, setPapelariaSel] = useState([]);
-    const [submitted, setSubmitted] = useState(false);
     const [homeHovered, setHomeHovered] = useState(false);
 
     const set = (k, v) => setForm(f => ({ ...f, [k]: v }));
@@ -192,57 +191,21 @@ export default function Orcamento() {
     const toggleArr = (arr, setArr, val) =>
         setArr(a => a.includes(val) ? a.filter(x => x !== val) : [...a, val]);
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
-
-        const payload = {
-            ...form,
-            papelaria: papelariaSel,
-        };
-
-        try {
-            await fetch("https://submit-form.com/mEBIhCXcL", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    Accept: "application/json",
-                },
-                body: JSON.stringify(payload),
-            });
-            setSubmitted(true);
-        } catch (error) {
-            console.error("Erro ao enviar o formulário:", error);
-            // Mostrar a tela de sucesso de qualquer modo ou lidar com erro aqui
-            setSubmitted(true);
-        }
+        const papelariaTxt = papelariaSel.length > 0 ? papelariaSel.join(', ') : 'Nenhum';
+        const msg = [
+            `Olá! Tenho interesse em um orçamento de identidade visual.`,
+            ``,
+            `Nome: ${form.nome}`,
+            `Email: ${form.email}`,
+            `Telefone: ${form.telefone}`,
+            `Empresa: ${form.empresa}`,
+            form.prazo ? `Prazo: ${form.prazo}` : `Prazo: Não informado`,
+            `Itens de papelaria: ${papelariaTxt}`,
+        ].join('\n');
+        window.open(`https://wa.me/5583961756060?text=${encodeURIComponent(msg)}`, '_blank');
     };
-
-    if (submitted) {
-        return (
-            <>
-                <style>{css}</style>
-                <nav className="o360-nav">
-                    <Link to="/" className="o360-nav-logo">
-                        <img src={logo} alt="Orlando 360 Logo" />
-                    </Link>
-                    <Link
-                        to="/"
-                        style={{ textDecoration: "none" }}
-                        onMouseEnter={() => setHomeHovered(true)}
-                        onMouseLeave={() => setHomeHovered(false)}
-                    >
-                        <HomeIcon size={20} hovered={homeHovered} />
-                    </Link>
-                </nav>
-                <div className="orc-success">
-                    <h2>Recebemos seu <em>pedido!</em></h2>
-                    <p>
-                        Entrarei em contato pelo Whatsapp {form.contato || "e-mail"} .<br/>
-                    </p>
-                </div>
-            </>
-        );
-    }
 
     return (
         <div style={{ backgroundColor: '#0a0a0a', minHeight: '100vh', color: '#fff' }}>

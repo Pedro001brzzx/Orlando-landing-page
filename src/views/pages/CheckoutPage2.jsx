@@ -467,22 +467,19 @@ const CheckIcon = ({ color }) => (
 export default function CheckoutPage2() {
     const [selectedPlan, setSelectedPlan] = useState(null);
     const [form, setForm] = useState({ nome: "", contato: "" });
-    const [submitted, setSubmitted] = useState(false);
     const [homeHovered, setHomeHovered] = useState(false);
 
     const set = (k, v) => setForm(f => ({ ...f, [k]: v }));
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
-        const payload = { ...form, plano: selectedPlan.name };
-        try {
-            await fetch("https://submit-form.com/mEBIhCXcL", {
-                method: "POST",
-                headers: { "Content-Type": "application/json", Accept: "application/json" },
-                body: JSON.stringify(payload),
-            });
-        } catch (_) {}
-        setSubmitted(true);
+        const msg = [
+            `Olá! Tenho interesse no plano de webdesign ${selectedPlan.name}.`,
+            ``,
+            `Nome: ${form.nome}`,
+            `Contato: ${form.contato}`,
+        ].join('\n');
+        window.open(`https://wa.me/5583961756060?text=${encodeURIComponent(msg)}`, '_blank');
     };
 
     return (
@@ -505,12 +502,7 @@ export default function CheckoutPage2() {
                 </Link>
             </nav>
 
-            {submitted ? (
-                <div className="cp2-success">
-                    <h2>Recebemos seu <em>pedido!</em></h2>
-                    <p>Entrarei em contato pelo WhatsApp em breve.<br />Até logo!</p>
-                </div>
-            ) : selectedPlan ? (
+            {selectedPlan ? (
                 <>
                     <div className="cp2-header">
                         <span className="cp2-header-label">Orlando Web Studio</span>
